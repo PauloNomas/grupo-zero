@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulario de Estado de Transacción</title>
+</head>
+<body>
+    <h1>Formulario de Estado de Transacción</h1>
+    <form action="{% url 'webpay_plus_status' %}" method="POST">
+        {% csrf_token %}
+        <label for="token_ws">Token:</label>
+        <input type="text" name="token_ws" id="token_ws">
+        <input type="submit" value="Consultar Estado">
+    </form>
+</body>
+</html>

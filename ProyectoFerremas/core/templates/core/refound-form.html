@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulario de Reembolso</title>
+</head>
+<body>
+    <h1>Formulario de Reembolso</h1>
+    <form action="{% url 'webpay_plus_refund' %}" method="POST">
+        {% csrf_token %}
+        <label for="token_ws">Token:</label>
+        <input type="text" name="token_ws" id="token_ws">
+        <label for="amount">Monto:</label>
+        <input type="number" name="amount" id="amount">
+        <input type="submit" value="Reembolsar">
+    </form>
+</body>
+</html>

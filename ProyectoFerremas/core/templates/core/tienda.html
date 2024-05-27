@@ -1,0 +1,43 @@
+{% extends "core/base.html" %}
+{% load static %}
+
+      
+      {% block principal %}     
+    
+    <link rel="stylesheet" href="{% static 'core/css/productos.css' %}">
+   
+    <title>tienda</title>
+</head>
+<body>
+    
+      <div class="container">
+        <div class="orden">
+          {% for p in productos %}
+          <div class="card" style="width: 18rem;">
+            <img src="{{ p.imagen.url }}" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">{{ p.nombre }}</h5>
+              <p class="card-text">{{ p.descripcion }}</p>
+              <p class="card-text">Precio: ${{ p.precio }}</p>
+              <p class="card-text">Stock: {{ p.stock }}</p>
+              <a href="{% url 'AGREGAR_AL_CARRITO' p.id %}" class="btn btn-primary">Añadir al carrito</a>
+            </div>
+          </div>
+          {% endfor %}
+
+        </div>
+      </div>
+
+
+<style>
+  .orden{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+</style>
+      
+      
+{% endblock principal %}

@@ -1,0 +1,44 @@
+{% extends "core/base.html" %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro</title>
+    {% block principal %}
+    <link rel="stylesheet" href="{% static 'core/css/registro.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Registro</h1>
+        {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+        <form method="post" class="registration-form">
+            {% csrf_token %}
+            {{ form.as_p }}
+            {% if form.errors %}
+                <div class="errors">
+                    <ul>
+                        {% for field in form %}
+                            {% for error in field.errors %}
+                                <li>{{ error }}</li>
+                            {% endfor %}
+                        {% endfor %}
+                        {% for error in form.non_field_errors %}
+                            <li>{{ error }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            {% endif %}
+            <button type="submit" class="register-button">Registrarse</button>
+        </form>
+    </div>
+</body>
+</html>
+{% endblock principal %}

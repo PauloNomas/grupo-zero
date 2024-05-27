@@ -1,0 +1,22 @@
+<!-- templates/indicadores.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Indicadores Económicos</title>
+</head>
+<body>
+    <h1>Indicadores Económicos de Chile</h1>
+    <ul>
+        {% if indicadores %}
+            <li>UF: {{ indicadores.uf }} CLP</li>
+            <li>Dólar: {{ indicadores.dolar }} CLP</li>
+            <li>Euro: {{ indicadores.euro }} CLP</li>
+            <li>IPC: {{ indicadores.ipc }}</li>
+        {% else %}
+            <li>No se pudieron cargar los datos.</li>
+        {% endif %}
+    </ul>
+</body>
+</html>

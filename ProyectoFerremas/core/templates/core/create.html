@@ -1,0 +1,21 @@
+<!-- webpay/plus/create.html -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Webpay Plus Create</title>
+</head>
+<body>
+    <h1>Redirigiendo a Webpay Plus...</h1>
+    <form action="{{ response.url }}" method="POST" id="webpay-form">
+        <input type="hidden" name="token_ws" value="{{ response.token }}">
+        <noscript>
+            <p>JavaScript is disabled. Click the button below to proceed.</p>
+            <button type="submit">Proceed</button>
+        </noscript>
+    </form>
+    <script>
+        document.getElementById('webpay-form').submit();
+    </script>
+</body>
+</html>
